@@ -165,19 +165,16 @@ console.log("Alan Anderson Stats: ", playerStats("Alan Anderson"));
 function bigShoeRebounds () {
     const game = gameObject();
     const allPlayers = {...game.home.players, ...game.away.players} //make an object with all the players as its elements
-    //console.log("All Players Object: ", allPlayers, '\n');
     let biggestShoe = "Alan Anderson"; //name of player
-    //debugger;
     for (player in allPlayers) {
+        //debugger; debugger won't let you jump right into the conditional below and passively see what the conditional is evaluating to, 
+            //but you CAN "step" through a few iterations of the for loop to get to the point you want, then go over to console and copy-
+            //paste the  allPlayers[player].shoe value to see what it's evaluating to. Essentially functions the same.
         if (allPlayers[player].shoe > allPlayers[biggestShoe].shoe) {
             biggestShoe = player;
         }
-        //console.log(player, player.shoe, biggestShoe, allPlayers[biggestShoe].shoe)
-        //console.log(biggestShoe);
     }
     return allPlayers[biggestShoe].rebounds;
 }
-
-//*********** for some reason in this ^ block of code, player.shoe is always equalling undefined. I'm assuming that's something to do with the way for....in works - need to see if there's a way to fix that.
 
 console.log("Number of rebounds from the guy with the biggest shoe: ", bigShoeRebounds ());
